@@ -25,6 +25,12 @@ let candidateName = input.question(("Enter your name: "))
 function askQuestion() {
   console.log(question);
   let candidateAnswer = input.question("Awnser: ")
+  if (candidateAnswer === correctAnswer) {
+    console.log("Correct! ")
+  } else {
+    console.log("Incorrect. ")
+  }
+
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
 
 
