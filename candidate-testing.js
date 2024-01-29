@@ -21,7 +21,6 @@ let candidateAnswers= [];
 
 
 function askForName() {
-  const input = require('readline-sync')
  candidateName = input.question("Enter your name: ");
   // TODO 1.1b: Ask for candidate's name //
 
@@ -38,16 +37,22 @@ for (let i = 0; i<questions.length; i++) {
  }
 }
 function gradeQuiz(candidateAnswers) {
-  // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
- console.log(`1. ${questions[0]} ${candidateName} awnsered: ${candidateAnswers[0]}. Correct awnser: ${correctAnswers[0]}\n
- 2. ${questions[1]} ${candidateName} awnsered: ${candidateAnswers[1]}. Correct awnser: ${correctAnswers[1]}\n
- 3. ${questions[2]} ${candidateName} awnsered: ${candidateAnswers[2]}. Correct awnser: ${correctAnswers[2]}\n
- 4. ${questions[3]} ${candidateName} awnsered: ${candidateAnswers[3]}. Correct awnser: ${correctAnswers[3]}\n
- 5. ${questions[4]} ${candidateName} awnsered: ${candidateAnswers[4]}. Correct awnser: ${correctAnswers[4]}  `)
-
-
-
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
+ let correctCount = 0
+ for (i=0; i<questions.length; i++){ 
+  console.log(`${questions[i]} Awnser: ${candidateAnswers[i]}. Correct awnser: ${correctAnswers[i]}`)
+  if(candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()){
+    correctCount = correctCount + 1
+  }
+    }
+ 
+  
+ let grade = (correctCount / questions.length) * 100
+if (grade >= 80){
+  console.log(`Score= ${grade}%; You Passed!`)
+}else {
+  console.log(`Score= ${grade}%; Sorry You Falied`)
+}
+   ;  //TODO 3.2 use this variable to calculate the candidates score.
 
 
   return grade;
